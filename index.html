@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>GalagaCompany</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="https://www.galagasac.pe/?pages=about" target="blank">
+    <img src="ImagenLogoGalalog.png" alt="Logo Galaga" class="logo" />
+  </a>
+
+  <div class="container">
+    <input type="checkbox" id="check" />
+
+    <!-- LOGIN -->
+    <div class="login form">
+      <header>Login</header>
+      <div id="login-error-message" class="error-message"></div>
+      <form id="login-form">
+        <input type="text" id="login-username" name="username" placeholder="Nombre de usuario" required />
+        <input type="password" id="login-password" name="password" placeholder="Contraseña" required />
+
+        <a href="#" id="forgot-password-link">¿Olvidaste la contraseña?</a>
+
+        <!-- Cuadro de ayuda para recuperar contraseña -->
+        <div id="forgot-box" class="hidden-box">
+          <img src="https://i.gifer.com/7efs.gif" alt="Alerta" class="gif-alerta" />
+          <p><strong>¡Contáctenos para recuperar su cuenta!</strong></p>
+          <p>📞 +51 995-972-009</p>
+        </div>
+
+        <audio id="bip-audio" preload="auto">
+          <source src="https://www.soundjay.com/buttons/sounds/beep-07.mp3" type="audio/mpeg" />
+        </audio>
+
+        <input type="submit" id="login-button" class="button" value="Login" />
+      </form>
+
+      <div class="signup">
+        <span class="signup">¿No tienes una cuenta? <label for="check">Signup</label></span>
+      </div>
+    </div>
+
+    <!-- REGISTRO -->
+    <div class="registration form">
+      <header>Signup</header>
+      <form id="register-form">
+        <p><label for="reg-nombre">Nombre:</label><br />
+          <input type="text" id="reg-nombre" name="nombre" required maxlength="50" /></p>
+        <p><label for="reg-apellido">Apellido:</label><br />
+          <input type="text" id="reg-apellido" name="apellido" required maxlength="50" /></p>
+        <p><label for="reg-username">Nombre de usuario:</label><br />
+          <input type="text" id="reg-username" name="username" required maxlength="30" /></p>
+        <p><label for="reg-email">Correo electrónico:</label><br />
+          <input type="email" id="reg-email" name="email" required maxlength="50" /></p>
+        <p><label for="reg-password">Contraseña:</label><br />
+          <input type="password" id="reg-password" name="password" required minlength="6" maxlength="20" /></p>
+        <p><label for="reg-confirm-password">Confirma tu contraseña:</label><br />
+          <input type="password" id="reg-confirm-password" name="confirmPassword" required minlength="6" maxlength="20" /></p>
+        <p><label for="reg-rol">Seleccione rol:</label><br />
+          <select id="reg-rol" name="rol" required>
+            <option value="">-- Seleccione rol --</option>
+            <option value="jefe">Jefe</option>
+            <option value="almacenero">Almacenero</option>
+          </select></p>
+        <div id="register-message" class="error-message" aria-live="polite"></div>
+        <p><input type="button" id="register-button" class="button" value="Registrarse" /></p>
+      </form>
+    </div>
+  </div>
+  <!-- Notificación animada -->
+  <div id="login-toast" class="toast hidden"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="conexion-test.js"></script>
+  <script type="module" src="register.js"></script>
+  <script type="module" src="auth.js"></script>
+
+
+  </script>
+</body>
+</html>
