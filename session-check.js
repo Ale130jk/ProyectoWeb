@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const rol = usuarioActual.rol;
-  const url = window.location.pathname;
+  const url = window.location.href.toLowerCase(); // ✅ más confiable en GitHub Pages
 
   // ⛔ Bloquear acceso si el rol no coincide con la vista actual
   if (url.includes("dashboard-jefe") && rol !== "jefe") {
