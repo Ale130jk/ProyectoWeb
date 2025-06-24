@@ -103,9 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('✅ Inicio de sesión exitoso.');
 
       if (user.rol === 'almacenero') {
-        window.location.href = 'dashboard-almacenero.html';
+        window.location.href = '/ProyectoWeb/dashboard-almacenero.html';
       } else if (user.rol === 'jefe') {
-        window.location.href = 'dashboard-jefe.html';
+        window.location.href = '/ProyectoWeb/dashboard-jefe.html';
       } else {
         mostrarMensaje('⚠️ Rol no reconocido.');
         alert('⚠️ Rol no reconocido.');
