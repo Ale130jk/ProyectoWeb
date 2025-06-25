@@ -1,43 +1,28 @@
+// session-check.js
 document.addEventListener('DOMContentLoaded', () => {
   const usuarioActual = JSON.parse(sessionStorage.getItem('usuarioActual'));
 
+  // ⛔ Si no hay sesión activa, redirige al login
   if (!usuarioActual) {
-    // ⛔ Sin sesión activa, redirige al login
-    window.location.href = 'index.html';
+    window.location.href = "./index.html";
     return;
   }
-if (!usuarioActual) {
-  // window.location.href = 'index.html';
-  console.log('⚠️ No hay sesión activa, pero seguimos para pruebas');
-  return;
-}
-if (url.includes('dashboard-jefe.html') && rol !== 'jefe') {
-  // window.location.href = 'index.html';
-  console.log('⚠️ Rol incorrecto (jefe), pero seguimos para pruebas');
-  return;
-}
-
-if (url.includes('dashboard-almacenero.html') && rol !== 'almacenero') {
-  // window.location.href = 'index.html';
-  console.log('⚠️ Rol incorrecto (almacenero), pero seguimos para pruebas');
-  return;
-}
 
   const rol = usuarioActual.rol;
-  const url = window.location.href; // usa href en lugar de pathname
+  const url = window.location.pathname;
 
-  // ⛔ Bloquea acceso si el rol no coincide
-  if (url.includes('dashboard-jefe.html') && rol !== 'jefe') {
-    window.location.href = 'index.html';
+  // ⛔ Bloquear acceso si el rol no coincide con la vista actual
+  if (url.includes("dashboard-jefe") && rol !== "jefe") {
+    window.location.href = "./index.html";
     return;
   }
 
-  if (url.includes('dashboard-almacenero.html') && rol !== 'almacenero') {
-    window.location.href = 'index.html';
+  if (url.includes("dashboard-almacenero") && rol !== "almacenero") {
+    window.location.href = "./index.html";
     return;
   }
 
-  // ✅ Muestra el nombre si hay elemento con .nombre-usuario
+  // ✅ Mostrar el nombre del usuario si hay elementos con la clase .nombre-usuario
   document.querySelectorAll('.nombre-usuario').forEach(el => {
     el.textContent = usuarioActual.username;
   });
@@ -47,7 +32,7 @@ if (url.includes('dashboard-almacenero.html') && rol !== 'almacenero') {
     btn.addEventListener('click', e => {
       e.preventDefault();
       sessionStorage.removeItem('usuarioActual');
-      window.location.href = 'index.html';
+      window.location.href = "./index.html";
     });
   });
 });
